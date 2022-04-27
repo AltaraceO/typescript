@@ -1,8 +1,11 @@
-export const Todos = () => {
+import Todo from "../models/todo";
+
+export const Todos: React.FC<{ items: Todo[] }> = (props) => {
   return (
     <ul>
-      <li>1</li>
-      <li>2</li>
+      {props.items.map((item) => {
+        return <li key={item.id}>{item.text}</li>;
+      })}
     </ul>
   );
 };
